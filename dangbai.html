@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green X</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./asset/fonts/fontawesome-free-6.4.0-web/css/all.min.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <img src="./asset/image/logo.jpg" alt="Logo" width="40">
+            <span>Green X</span>
+        </div>
+
+        <nav class="menu">
+            <ul>
+                <li><a href="./index.html"><i class="fa-solid fa-house"></i><span>Trang chủ</span></a></li>
+                <li><a href="./khampha.html"><i class="fa-solid fa-globe"></i><span>Dành cho bạn</span></a></li>
+                <li><a href="./dangbai.html"><i class="fa-solid fa-camera"></i><span>Đăng bài</span></a></li>
+                <li><a href="./cho.html"><i class="fa-solid fa-shop"></i><span>Chợ</span></a></li>
+                <li><a href="./bangxephang.html"><i class="fa-solid fa-ranking-star"></i><span>Bảng xếp hạng</span></a>
+                </li>
+                <li><a href="./nhiemvu.html"><i class="fa-solid fa-list-check"></i><span>Nhiệm vụ</span></a></li>
+            </ul>
+        </nav>
+
+
+        <div class="login-section">
+            <p>Nhập để đăng nhập vào tài khoản của bạn và xem thêm thông tin!</p>
+        </div>
+
+        <footer class="footer">
+            <p>© 2024 Green X</p>
+        </footer>
+    </div>
+
+    <div class="content">
+        <header class="header">
+            <input type="text" placeholder="Tìm kiếm...">
+            <button>
+                <a href="./profile.html" style="list-style: none; text-decoration: none;">hanhbanh28</a>
+            </button>
+
+        </header>
+
+
+        <main class="create-post-container">
+            <div class="create-post-box">
+                <h1 class="create-post-title">Tạo bài đăng</h1>
+        
+                <div class="create-post-user">
+                    <i class="fa-solid fa-user" style="font-size: 40px;"></i>
+                    <span class="user-name">Nguyễn Văn Hà</span>
+                </div>
+        
+                <!-- Thay textarea bằng div contenteditable -->
+                <div class="create-post-textarea" contenteditable="true" 
+                     placeholder="Đăng bài tại đây." style="border: 1px solid #ccc; padding: 10px; min-height: 100px;">
+                </div>
+        
+                <div class="create-post-options">
+                    <div class="post-icons">
+                        <input type="file" id="upload-image" class="upload-file-input" accept="image/*" hidden>
+                        <label for="upload-image">
+                            <i class="fa-solid fa-image"></i>
+                        </label>
+                        <i class="fa-solid fa-face-smile" id="emoji-icon" style="cursor: pointer;"></i>
+                    </div>
+        
+                    <div class="emoji-menu" id="emoji-menu" style="display: none;">
+                        <span>😊</span> <span>😍</span> <span>😂</span> <span>🤔</span> <span>😢</span> <span>😡</span>
+                    </div>
+                </div>
+        
+                <button class="create-post-btn">ĐĂNG</button>
+            </div>
+        </main>
+        
+
+
+    </div>
+    <Script>
+  // Lấy các phần tử DOM cần thiết
+const createPostBtn = document.querySelector('.create-post-btn');
+const createPostContent = document.querySelector('.create-post-textarea');
+const emojiIcon = document.getElementById('emoji-icon');
+const emojiMenu = document.getElementById('emoji-menu');
+const uploadImageInput = document.getElementById('upload-image');
+
+// Hiển thị hoặc ẩn menu emoji khi nhấp vào icon mặt cười
+emojiIcon.addEventListener('click', () => {
+    emojiMenu.style.display = emojiMenu.style.display === 'none' ? 'block' : 'none';
+});
+
+// Thêm emoji vào nội dung khi người dùng nhấp vào một emoji
+emojiMenu.addEventListener('click', (event) => {
+    if (event.target.tagName === 'SPAN') {
+        const emoji = event.target.textContent;
+        createPostContent.innerHTML += ` ${emoji}`; // Thêm emoji vào nội dung
+        emojiMenu.style.display = 'none'; // Ẩn menu sau khi chọn
+    }
+});
+
+// Chèn ảnh vào nội dung khi người dùng chọn ảnh
+uploadImageInput.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            img.style.maxWidth = '100%';
+            img.style.marginTop = '10px';
+            createPostContent.appendChild(img); // Chèn ảnh vào nội dung
+        };
+        reader.readAsDataURL(file); // Đọc dữ liệu ảnh
+    }
+});
+
+
+
+// Xử lý sự kiện Đăng bài
+createPostBtn.addEventListener('click', () => {
+    const content = createPostContent.innerHTML.trim();
+
+    if (content === '') {
+        alert('Vui lòng điền nội dung bài viết trước khi đăng!');
+        return;
+    }
+
+    // Thông báo đăng bài thành công
+    alert('Bài đăng của bạn đã được tạo thành công!');
+    
+    // Reset form sau khi đăng bài
+    createPostContent.innerHTML = ''; // Xóa nội dung bài viết
+    uploadImageInput.value = ''; // Reset input file
+});
+
+
+    </Script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý người dùng</title>
+    <link rel="stylesheet" href="admin.css" />
+    <link
+      rel="stylesheet"
+      href="./asset/fonts/fontawesome-free-6.4.0-web/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <nav class="sidebar">
+        <div class="sidebar-header">
+          <h2>Admin GreenX</h2>
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a href="admin.html"
+              ><i class="fas fa-tachometer-alt"></i> Trang chủ</a
+            >
+          </li>
+          <li>
+            <a href="users.html"
+              ><i class="fas fa-users"></i> Quản lý người dùng</a
+            >
+          </li>
+          <li>
+            <a href="posts.html"
+              ><i class="fas fa-edit"></i> Kiểm duyệt bài đăng</a
+            >
+          </li>
+          <li>
+            <a href="tasks.html"><i class="fas fa-tasks"></i> Nhiệm vụ</a>
+          </li>
+          <li>
+            <a href="ranking.html"
+              ><i class="fas fa-chart-bar"></i> Bảng xếp hạng</a
+            >
+          </li>
+          <li>
+            <a href="products.html"
+              ><i class="fas fa-box"></i> Quản lý sản phẩm</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <header>
+          <h1>Quản lý người dùng</h1>
+        </header>
+
+        <section class="user-management">
+          <h2>Danh sách người dùng</h2>
+          <table class="user-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Ảnh</th>
+                <th>Tên người dùng</th>
+                <th>Email</th>
+                <th>Vai trò</th>
+                <th>Hành động</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>
+                  <img
+                    src="./asset/image/chung tay.jpg"
+                    style="width: 100px; height: 100px"
+                  />
+                </td>
+                <td>Nguyễn Văn A</td>
+                <td>nguyenvana@example.com</td>
+                <td>Admin</td>
+                <td>
+                  <button
+                    class="edit-btn"
+                    onclick="openEditModal(1, 'Nguyễn Văn A', 'nguyenvana@example.com', 'Admin')"
+                  >
+                    Sửa
+                  </button>
+                  <button class="delete-btn" onclick="deleteUser(1)">
+                    Xóa
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>
+                  <img
+                    src="./asset/image/chung tay.jpg"
+                    style="width: 100px; height: 100px"
+                  />
+                </td>
+                <td>Trần Thị B</td>
+                <td>tranthib@example.com</td>
+                <td>Người dùng</td>
+                <td>
+                  <button
+                    class="edit-btn"
+                    onclick="openEditModal(2, 'Trần Thị B', 'tranthib@example.com', 'Người dùng')"
+                  >
+                    Sửa
+                  </button>
+                  <button class="delete-btn" onclick="deleteUser(2)">
+                    Xóa
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>
+                  <img
+                    src="./asset/image/chung tay.jpg"
+                    style="width: 100px; height: 100px"
+                  />
+                </td>
+                <td>Lê Văn C</td>
+                <td>levanc@example.com</td>
+                <td>Người dùng</td>
+                <td>
+                  <button
+                    class="edit-btn"
+                    onclick="openEditModal(3, 'Lê Văn C', 'levanc@example.com', 'Người dùng')"
+                  >
+                    Sửa
+                  </button>
+                  <button class="delete-btn" onclick="deleteUser(3)">
+                    Xóa
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Thêm người dùng mới</h3>
+          <form class="add-user-form" id="addUserForm">
+            <label for="username">Tên người dùng:</label>
+            <input type="text" id="username" name="username" required />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="postImage">Chọn ảnh:</label>
+            <input
+              type="file"
+              id="postImage"
+              name="postImage"
+              accept="image/*"
+            />
+
+            <label for="role">Vai trò:</label>
+            <select id="role" name="role">
+              <option value="Admin">Admin</option>
+              <option value="Người dùng">Người dùng</option>
+            </select>
+
+            <button type="submit">Thêm người dùng</button>
+          </form>
+
+          <!-- Success Message -->
+          <div id="successMessage" style="display: none; color: green">
+            Thêm người dùng thành công
+          </div>
+
+          <!-- Delete Success Message -->
+          <div id="deleteMessage" style="display: none; color: red">
+            Xóa thành công
+          </div>
+        </section>
+      </div>
+
+      <script>
+        document
+          .getElementById("addUserForm")
+          .addEventListener("submit", function (event) {
+            // Prevent the default form submission
+            event.preventDefault();
+
+            // Display the success message
+            document.getElementById("successMessage").style.display = "block";
+
+            // Optionally, you can reset the form fields if you want
+            this.reset();
+          });
+
+        function openEditModal(id, username, email, role) {
+          // Set the values in the modal
+          document.getElementById("edit-username").value = username;
+          document.getElementById("edit-email").value = email;
+          document.getElementById("edit-role").value = role;
+
+          // Display the modal
+          document.getElementById("editUserModal").style.display = "block";
+        }
+
+        function closeEditModal() {
+          // Hide the modal
+          document.getElementById("editUserModal").style.display = "none";
+        }
+
+        // Close the modal when clicking outside of it
+        window.onclick = function (event) {
+          const modal = document.getElementById("editUserModal");
+          if (event.target == modal) {
+            closeEditModal();
+          }
+        };
+
+        function deleteUser(id) {
+          // Display the delete success message
+          const deleteMessageElement = document.getElementById("deleteMessage");
+          deleteMessageElement.style.display = "block";
+
+          // Optionally hide the message after 3 seconds
+          setTimeout(function () {
+            deleteMessageElement.style.display = "none";
+          }, 3000);
+
+          // Optionally, you can hide the user row from the table
+          const row = document.querySelector(
+            `tr td:first-child:contains('${id}')`
+          ).parentElement;
+          if (row) {
+            row.remove();
+          }
+        }
+      </script>
+    </div>
+
+    <!-- Modal for editing user -->
+    <div id="editUserModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close" onclick="closeEditModal()" style="cursor: pointer"
+          >&times;</span
+        >
+        <h2>Sửa người dùng</h2>
+        <form id="editUserForm">
+          <label for="edit-username">Tên người dùng:</label>
+          <input type="text" id="edit-username" name="edit-username" required />
+
+          <label for="edit-email">Email:</label>
+          <input type="email" id="edit-email" name="edit-email" required />
+
+          <label for="edit-postImage">Chọn ảnh:</label>
+          <input
+            type="file"
+            id="edit-postImage"
+            name="edit-postImage"
+            accept="image/*"
+          />
+
+          <label for="edit-role">Vai trò:</label>
+          <select id="edit-role" name="edit-role">
+            <option value="Admin">Admin</option>
+            <option value="Người dùng">Người dùng</option>
+          </select>
+
+          <button type="submit">Lưu thay đổi</button>
+        </form>
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

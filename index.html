@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green X</title>
+    <link rel="stylesheet" href="style.css">
+     <link rel="stylesheet" href="./asset/fonts/fontawesome-free-6.4.0-web/css/all.min.css">
+     <link rel="stylesheet" href="./script.js">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <img src="./asset/image/logo.jpg" alt="Logo" width="40">
+            <span>Green X</span>
+        </div>
+
+        <nav class="menu">
+          <ul>
+              <li><a href="./index.html"><i class="fa-solid fa-house"></i><span>Trang chủ</span></a></li>
+              <li><a href="./khampha.html"><i class="fa-solid fa-globe"></i><span>Dành cho bạn</span></a></li>
+              <li><a href="./dangbai.html"><i class="fa-solid fa-camera"></i><span>Đăng bài</span></a></li>
+              <li><a href="./cho.html"><i class="fa-solid fa-shop"></i><span>Chợ</span></a></li>
+              <li><a href="./bangxephang.html"><i class="fa-solid fa-ranking-star"></i><span>Bảng xếp hạng</span></a></li>
+              <li><a href="./nhiemvu.html"><i class="fa-solid fa-list-check"></i><span>Nhiệm vụ</span></a></li>
+          </ul>
+      </nav>
+      
+
+        <div class="login-section">
+            <p>Nhập để đăng nhập vào tài khoản của bạn và xem thêm thông tin!</p>
+            <button>Đăng Nhập</button>
+        </div>
+
+        <footer class="footer">
+            <p>© 2024 Green X</p>
+        </footer>
+    </div>
+
+    <!--  -->
+    <div class="overlay" id="overlay"></div>
+    <!--  -->
+
+    <div class="content">
+        <header class="header">
+            <input type="text" placeholder="Tìm kiếm...">
+            <button class="search-button">🔍 Tìm kiếm</button>
+            <button class="">Đăng Nhập</button>
+        </header>
+
+        <main>
+            <div class="card-container">
+                <!-- Card 1 -->
+                <div class="card">
+                    <div class="user-info">
+                        <div class="image">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <b class="user">username</b>
+                        <i class="fa-solid fa-ellipsis" style="margin-left: auto;"></i>
+                    </div>
+                    <p>Chương trình “Trồng cây xanh – Gieo mầm hạnh phúc” được VAUIS tổ chức để bé trồng cây xanh tại khuôn viên nhà trường...</p>
+                    <img src="./asset/image/hình 1.webp" alt="Image 1">
+                    <div class="card-icons">
+                      <i class="fas fa-heart like-icon"></i>
+                      <i class="fas fa-comment comment-icon"></i>
+                      <div class="comment-section" style="display: none;">
+                          <input type="text" class="comment-input" placeholder="Nhập bình luận..." />
+                          <button class="comment-submit">Gửi</button>
+                      </div>
+                      <i class="fa-solid fa-right-left"></i>
+                      <i class="fas fa-share"></i>
+                  </div>
+                </div>
+
+                <!-- Additional Cards (repeated structure) -->
+                <div class="card">
+                    <div class="user-info">
+                        <div class="image">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <b class="user">username</b>
+                        <i class="fa-solid fa-ellipsis" style="margin-left: auto;"></i>
+                    </div>
+                    <p>Chương trình “Trồng cây xanh –  Gieo mầm hạnh phúc” được VAUIS tổ chức để bé trồng cây xanh tại khuôn viên nhà trường...</p>
+                    <img src="./asset/image/hình 1.webp" alt="Image 1">
+                    <div class="card-icons">
+                      <i class="fas fa-heart like-icon"></i>
+                      <i class="fas fa-comment comment-icon"></i>
+                      <div class="comment-section" style="display: none;">
+                          <input type="text" class="comment-input" placeholder="Nhập bình luận..." />
+                          <button class="comment-submit">Gửi</button>
+                      </div>
+                      <i class="fa-solid fa-right-left"></i>
+                      <i class="fas fa-share"></i>
+                  </div>
+                </div>
+
+                <div class="card">
+                    <div class="user-info">
+                        <div class="image">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <b class="user">username</b>
+                        <i class="fa-solid fa-ellipsis" style="margin-left: auto;"></i>
+                    </div>
+                    <p>Chương trình “Trồng cây xanh – Gieo mầm hạnh phúc” được VAUIS tổ chức để bé trồng cây xanh tại khuôn viên nhà trường...</p>
+                    <img src="./asset/image/hình 1.webp" alt="Image 1">
+                    <div class="card-icons">
+                      <i class="fas fa-heart like-icon"></i>
+                      <i class="fas fa-comment comment-icon"></i>
+                      <div class="comment-section" style="display: none;">
+                          <input type="text" class="comment-input" placeholder="Nhập bình luận..." />
+                          <button class="comment-submit">Gửi</button>
+                      </div>
+                      <i class="fa-solid fa-right-left"></i>
+                      <i class="fas fa-share"></i>
+                  </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <!--  -->
+      <!-- login  -->
+  <div class="modal" id="modal">
+    <!-- Login Form -->
+    <div class="modal-content" id="login-form">
+      <span class="close-btn">&times;</span>
+      <h2>Đăng nhập vào GREEN X</h2>
+      <form>
+        <div class="input-group">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" placeholder="Số điện thoại hoặc Email" required />
+        </div>
+        <div class="input-group">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" placeholder="Mật khẩu" required />
+        </div>
+        <button type="submit" class="login-submit-btn">Đăng Nhập</button>
+      </form>
+      <div class="switch-link">
+        <span>Bạn chưa có tài khoản?</span>
+        <button class="switch-to-signup">Đăng Ký</button>
+      </div>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="modal-content" id="signup-form" style="display: none;">
+      <span class="close-btn">&times;</span>
+      <h2>Đăng ký tài khoản</h2>
+      <form>
+        <div class="input-group">
+          <i class="fa-solid fa-phone"></i>
+          <input type="text" placeholder="Số điện thoại" required />
+        </div>
+        <div class="input-group">
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" placeholder="Email" required />
+        </div>
+        <div class="input-group">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" placeholder="Tên đăng nhập" required />
+        </div>
+        <div class="input-group">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" placeholder="Mật khẩu" required />
+        </div>
+        <div class="input-group">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" placeholder="Xác nhận mật khẩu" required />
+        </div>
+        <p>Bằng việc đăng ký, bạn đồng ý với <a href="#">Điều khoản dịch vụ</a> và <a href="#">Chính sách quyền riêng tư</a>.</p>
+        <button type="submit" class="signup-submit-btn">Đăng Ký</button>
+      </form>
+      <div class="switch-link">
+        <span>Đã có tài khoản?</span>
+        <button class="switch-to-login">Đăng nhập</button>
+      </div>
+    </div>
+  </div>
+  <div class="card-container" id="postsContainer">
+    <!-- Các bài viết mới sẽ được thêm vào đây -->
+</div>
+  
+
+  
+ 
+<script src="./script.js"></script>
+
+  
+</body>
+
+</html>

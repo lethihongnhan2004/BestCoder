@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green X</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./asset/fonts/fontawesome-free-6.4.0-web/css/all.min.css">
+    <link rel="stylesheet" href="./script.js">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <img src="./asset/image/logo.jpg" alt="Logo" width="40">
+            <span>Green X</span>
+        </div>
+
+        <nav class="menu">
+            <ul>
+                <li><a href="./index.html"><i class="fa-solid fa-house"></i><span>Trang chủ</span></a></li>
+                <li><a href="./khampha.html"><i class="fa-solid fa-globe"></i><span>Dành cho bạn</span></a></li>
+                <li><a href="./dangbai.html"><i class="fa-solid fa-camera"></i><span>Đăng bài</span></a></li>
+                <li><a href="./cho.html"><i class="fa-solid fa-shop"></i><span>Chợ</span></a></li>
+                <li><a href="./bangxephang.html"><i class="fa-solid fa-ranking-star"></i><span>Bảng xếp hạng</span></a></li>
+                <li><a href="./nhiemvu.html"><i class="fa-solid fa-list-check"></i><span>Nhiệm vụ</span></a></li>
+            </ul>
+        </nav>
+
+
+        <div class="login-section">
+            <p>Nhập để đăng nhập vào tài khoản của bạn và xem thêm thông tin!</p>
+        </div>
+
+        <footer class="footer">
+            <p>© 2024 Green X</p>
+        </footer>
+    </div>
+
+    <div class="content">
+        <header class="header">
+            <input type="text" placeholder="Tìm kiếm...">
+            <button class="search-button">🔍 Tìm kiếm</button>
+            <button>
+                <a href="./profile.html" style="list-style: none; text-decoration: none;">hanhbanh28</a>
+          </button>
+        </header>
+
+        <div class="dashboard-container">
+            <!-- Thẻ hiển thị điểm -->
+            <div class="points-display">
+                <p>Điểm của bạn <i class="fa-solid fa-coins"></i></p>
+                <span class="points-value">300đ</span>
+                <button class="btn-convert-points">
+                    <a href="./cho.html" style="text-decoration: none; color: white;">Đổi điểm</a>
+                </button>
+            </div>
+        
+            <!-- Khu vực nhiệm vụ và tiến độ -->
+            <div class="task-progress-section">
+                <div class="daily-tasks">
+                    <h3>Nhiệm vụ hằng ngày</h3>
+                    <ul>
+                        <li>Check in hằng ngày (1/1) <span>50 Đ</span>
+                            <button class="btn-task done">✓</button>
+                        </li>
+                        <li>Tham gia hoạt động chia sẻ về trồng cây (0/1) <span>100 Đ</span>
+                            <button class="btn-task">Làm</button>
+                        </li>
+                        <li>Chia sẻ bài đăng (0/1) <span>20 Đ</span>
+                            <button class="btn-task">Làm</button>
+                        </li>
+                        <li>Đăng tin bán đồ cũ (0/4) <span>50 Đ</span>
+                            <button class="btn-task">Làm</button>
+                        </li>
+                        <li>Bình luận 10 bài viết (0/10) <span>100 Đ</span>
+                            <button class="btn-task">Làm</button>
+                        </li>
+                        <li>Yêu thích 100 bài viết (2/100) <span>100 Đ</span>
+                            <button class="btn-task">Làm</button>
+                        </li>
+                    </ul>
+                </div>
+        
+                <div class="completion-tracker">
+                    <h3>Mức độ hoàn thành nhiệm vụ</h3>
+                    <ul>
+                        <li>Tham gia hoạt động trồng cây
+                            <div class="progress-wrapper">
+                                <div class="progress-bar" style="width: 55%;"></div>
+                            </div>
+                            55%
+                        </li>
+                        <li>Chia sẻ bài đăng
+                            <div class="progress-wrapper">
+                                <div class="progress-bar" style="width: 100%;"></div>
+                            </div>
+                            100%
+                        </li>
+                        <li>Đăng tin bán đồ cũ
+                            <div class="progress-wrapper">
+                                <div class="progress-bar" style="width: 75%;"></div>
+                            </div>
+                            75%
+                        </li>
+                        <li>Yêu thích 100 bài viết
+                            <div class="progress-wrapper">
+                                <div class="progress-bar" style="width: 30%;"></div>
+                            </div>
+                            30%
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        
+            <!-- Bảng xếp hạng -->
+            <div class="ranking-board">
+                <h2>Bảng thành tích <i class="fa-solid fa-trophy"></i></h2>
+                <ul>
+                    <li>
+                        <span>🥇</span>
+                        <img src="./asset/image/user" class="player-avatar" alt="Avatar 1">
+                        <div class="player-info">
+                            <h3>Nguyễn Văn Hà</h3>
+                            <div class="rating-stars">★★★★★</div>
+                        </div>
+                        <span class="player-score">2950</span>
+                    </li>
+                    <li>
+                        <span>🥈</span>
+                        <img src="./asset/image/user" class="player-avatar" alt="Avatar 2">
+                        <div class="player-info">
+                            <h3>Lê Thị Hồng Nhận</h3>
+                            <div class="rating-stars">★★★★☆</div>
+                        </div>
+                        <span class="player-score">2710</span>
+                    </li>
+                    <li>
+                        <span>🥉</span>
+                        <img src="./asset/image/user" class="player-avatar" alt="Avatar 3">
+                        <div class="player-info">
+                            <h3>Nguyễn Tuấn Anh</h3>
+                            <div class="rating-stars">★★★★☆</div>
+                        </div>
+                        <span class="player-score">2635</span>
+                    </li>
+                    <li>
+                        <span>4</span>
+                        <img src="./asset/image/usernu" class="player-avatar" alt="Avatar 4">
+                        <div class="player-info">
+                            <h3>Nguyễn Đức Anh</h3>
+                            <div class="rating-stars">★★★☆☆</div>
+                        </div>
+                        <span class="player-score">2145</span>
+                    </li>
+                    <li>
+                        <span>5</span>
+                        <div class="hidden-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="player-info">
+                            <h3>Hidden Name</h3>
+                            <div class="rating-stars">★★☆☆☆</div>
+                        </div>
+                        <span class="player-score">1825</span>
+                    </li>
+                    <li>
+                        <span>6</span>
+                        <div class="hidden-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="player-info">
+                            <h3>Hidden Name</h3>
+                            <div class="rating-stars">★☆☆☆☆</div>
+                        </div>
+                        <span class="player-score">1565</span>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+        
+
+    </div>
+
+
+
+    <script src="./script.js"></script>
+
+
+</body>
+
+</html>

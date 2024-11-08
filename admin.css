@@ -1,0 +1,681 @@
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f8f5;
+  /* Nền trắng nhạt */
+  color: #333;
+}
+
+.container {
+  display: flex;
+}
+
+/* Sidebar styles */
+.sidebar {
+  width: 250px;
+  background-color: #2cb776;
+  /* Màu xanh lá chủ đạo của bạn */
+  color: white;
+  position: fixed;
+  height: 100vh;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-header {
+  font-size: 24px;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 20px 0;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+.nav-links li a i {
+  margin-right: 10px;
+}
+
+.nav-links li a:hover {
+  background-color: #2cb776;
+  /* Màu hover đậm hơn */
+  border-radius: 5px;
+}
+
+.dashboard-overview {
+  margin-top: 30px;
+}
+
+.dashboard-overview h2 {
+  color: #2cb776;
+  /* Tiêu đề phần có màu xanh lá */
+  margin-bottom: 20px;
+}
+
+.dashboard-stats {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stat-item {
+  background-color: #2cb776;
+  /* Xanh lá nhạt cho các box */
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 23%;
+  text-align: center;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+.stat-item h3 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.stat-item p {
+  font-size: 16px;
+}
+
+/* Main content styles */
+.main-content {
+  flex-grow: 1;
+  margin-left: 250px;
+  padding: 20px;
+  background-color: #ffffff;
+  /* Nền chính là trắng */
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #66bb6a;
+  /* Màu xanh lá cho header */
+  padding: 15px;
+  color: white;
+  border-radius: 5px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-bottom: 15px;
+  /* color: #66bb6a; */
+  /* Tiêu đề phần có màu xanh lá */
+}
+
+.task-management {
+  margin-bottom: 40px;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #ffffff;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+table th,
+table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+table th {
+  background-color: #2cb776;
+  /* Header bảng có màu xanh đậm */
+  color: white;
+}
+
+button {
+  background-color: #66bb6a;
+  /* Nút bấm có màu xanh lá */
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #2cb776;
+  /* Hover nút xanh lá đậm hơn */
+}
+
+/* Form styles */
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: #e8f5e9;
+  /* Nền form là xanh lá nhạt */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 30px;
+}
+
+form label {
+  margin-top: 10px;
+  color: #333;
+}
+
+form input,
+form select,
+form textarea {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  margin-top: 20px;
+  background-color: #66bb6a;
+  /* Nút thêm có màu xanh lá */
+  color: white;
+  padding: 10px;
+}
+
+form button:hover {
+  background-color: #2cb776;
+}
+
+/* Specific styles for task table */
+.task-table td,
+.task-table th {
+  text-align: center;
+}
+
+.task-table td:last-child {
+  display: flex;
+  justify-content: center;
+}
+
+.edit-btn {
+  background-color: #42a5f5;
+  /* Màu xanh dương cho nút sửa */
+  margin-right: 10px;
+}
+
+.edit-btn:hover {
+  background-color: #1e88e5;
+  /* Hover xanh dương đậm */
+}
+
+.delete-btn {
+  background-color: #ef5350;
+  /* Màu đỏ cho nút xóa */
+}
+
+.delete-btn:hover {
+  background-color: #e53935;
+  /* Hover đỏ đậm */
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #ffffff;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+table th,
+table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+table th {
+  background-color: #2cb776;
+  /* Header bảng có màu xanh đậm */
+  color: white;
+}
+
+.ranking-table td,
+.ranking-table th {
+  text-align: center;
+}
+
+.ranking-table td:last-child {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  background-color: #66bb6a;
+  /* Nút bấm có màu xanh lá */
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #2cb776;
+  /* Hover nút xanh lá đậm hơn */
+}
+
+/* Specific buttons for view and delete */
+.view-btn {
+  background-color: #42a5f5;
+  /* Màu xanh dương cho nút xem chi tiết */
+  margin-right: 10px;
+}
+
+.view-btn:hover {
+  background-color: #1e88e5;
+  /* Hover xanh dương đậm */
+}
+
+.delete-btn {
+  background-color: #ef5350;
+  /* Màu đỏ cho nút xóa */
+}
+
+.delete-btn:hover {
+  background-color: #e53935;
+  /* Hover đỏ đậm */
+}
+
+/* Main content styles */
+.main-content {
+  flex-grow: 1;
+  margin-left: 250px;
+  padding: 20px;
+  background-color: #ffffff;
+  /* Nền trắng cho phần nội dung */
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2cb776;
+  /* Màu xanh đậm cho header */
+  padding: 15px;
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 24px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info span {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* Post approval section */
+.post-approval {
+  margin-top: 30px;
+}
+
+.post-approval h2 {
+  color: #66bb6a;
+  margin-bottom: 20px;
+}
+
+/* Table styling for posts */
+.post-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+}
+
+.post-table th,
+.post-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.post-table th {
+  background-color: #2cb776;
+  /* Màu xanh đậm cho tiêu đề bảng */
+  color: white;
+}
+
+.post-table td {
+  text-align: center;
+}
+
+/* Button styles */
+button {
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  color: white;
+}
+
+.approve-btn {
+  background-color: #42a5f5;
+  /* Màu xanh dương cho nút phê duyệt */
+}
+
+.approve-btn:hover {
+  background-color: #1e88e5;
+  /* Hover xanh dương đậm hơn */
+}
+
+.delete-btn {
+  background-color: #ef5350;
+  /* Màu đỏ cho nút xóa */
+}
+
+.delete-btn:hover {
+  background-color: #e53935;
+  /* Hover đỏ đậm hơn */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .post-table th,
+  .post-table td {
+    padding: 10px;
+  }
+
+  button {
+    padding: 8px 12px;
+  }
+}
+
+/*  task css */
+
+/* Notification Styles */
+.notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #2cb776;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  z-index: 1000;
+}
+
+.notification.show {
+  opacity: 1;
+  visibility: visible;
+}
+/* Modal Background */
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 600px; /* Width of the modal */
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* rank css */
+/* Styles for Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+  border-radius: 10px;
+}
+
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+}
+
+.modal-content p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+/* Modal styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 400px;
+  border-radius: 10px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+h2 {
+  margin: 0 0 20px;
+}
+
+form label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+form input,
+form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  background-color: #2cb776; /* Green */
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #45a049;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

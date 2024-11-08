@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css" />
+    <link
+      rel="stylesheet"
+      href="./asset/fonts/fontawesome-free-6.4.0-web/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Thêm Chart.js -->
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <nav class="sidebar">
+        <div class="sidebar-header">
+          <h2>Admin GreenX</h2>
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a href="admin.html"
+              ><i class="fas fa-tachometer-alt"></i> Trang chủ</a
+            >
+          </li>
+          <li>
+            <a href="users.html"
+              ><i class="fas fa-users"></i> Quản lý người dùng</a
+            >
+          </li>
+          <li>
+            <a href="posts.html"
+              ><i class="fas fa-edit"></i> Kiểm duyệt bài đăng</a
+            >
+          </li>
+          <li>
+            <a href="tasks.html"><i class="fas fa-tasks"></i> Nhiệm vụ</a>
+          </li>
+          <li>
+            <a href="ranking.html"
+              ><i class="fas fa-chart-bar"></i> Bảng xếp hạng</a
+            >
+          </li>
+          <li>
+            <a href="products.html"
+              ><i class="fas fa-box"></i> Quản lý sản phẩm</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <header>
+          <h1>Quản lý trang web</h1>
+          <div class="user-info">
+            <span>Xin chào, Admin!</span>
+            <img
+              src="./asset/image/logo.jpg"
+              alt="Admin Avatar"
+              class="user-avatar"
+            />
+          </div>
+        </header>
+
+        <section class="dashboard-overview">
+          <h2>Thống kê tổng quan</h2>
+          <div class="dashboard-stats">
+            <div class="stat-item">
+              <h3>500</h3>
+              <p>Người dùng</p>
+            </div>
+            <div class="stat-item">
+              <h3>150</h3>
+              <p>Bài đăng</p>
+            </div>
+            <div class="stat-item">
+              <h3>200</h3>
+              <p>Nhiệm vụ</p>
+            </div>
+            <div class="stat-item">
+              <h3>50</h3>
+              <p>Sản phẩm</p>
+            </div>
+          </div>
+          <!-- Biểu đồ Chart.js -->
+          <h2>Phân tích dữ liệu</h2>
+          <canvas id="myChart" width="400" height="200"></canvas>
+          <!-- Vùng đặt biểu đồ -->
+        </section>
+
+        <section class="recent-activity">
+          <h2>Hoạt động gần đây</h2>
+          <table class="activity-table">
+            <thead>
+              <tr>
+                <th>Thời gian</th>
+                <th>Người dùng</th>
+                <th>Hoạt động</th>
+                <th>Ảnh</th>
+                <th>Chi tiết</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>10:30 AM</td>
+                <td>Nguyễn Văn A</td>
+                <td>Đăng bài</td>
+                <td>
+                  <img
+                    src="./asset/image/chung tay.jpg"
+                    style="width: 100px; height: 100px"
+                  />
+                </td>
+                <td>Đã đăng bài viết "Trồng Cây Xanh"</td>
+              </tr>
+              <tr>
+                <td>9:45 AM</td>
+                <td>Trần Thị B</td>
+                <td>Cập nhật sản phẩm</td>
+                <td>
+                  <img
+                    src="./asset/image/chung tay.jpg"
+                    style="width: 100px; height: 100px"
+                  />
+                </td>
+                <td>Đã thêm sản phẩm "Cây Hoa Lan"</td>
+              </tr>
+              <tr>
+                <td>8:30 AM</td>
+                <td>Lê Văn C</td>
+                <td>Hoàn thành nhiệm vụ</td>
+                <td>
+                  <img
+                    src="./asset/image/chung tay.jpg"
+                    style="width: 100px; height: 100px"
+                  />
+                </td>
+                <td>Đã hoàn thành nhiệm vụ "Thêm bài viết đầu tiên"</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="admin.js"></script>
+
+    <script>
+      // Biểu đồ Chart.js
+      const ctx = document.getElementById("myChart").getContext("2d");
+      const myChart = new Chart(ctx, {
+        type: "bar", // Loại biểu đồ: cột (bar chart)
+        data: {
+          labels: ["Người dùng", "Bài đăng", "Nhiệm vụ", "Sản phẩm"], // Nhãn
+          datasets: [
+            {
+              label: "Thống kê tổng quan",
+              data: [500, 150, 200, 50], // Dữ liệu (Data)
+              backgroundColor: [
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+              ],
+              borderColor: [
+                "rgba(75, 192, 192, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(153, 102, 255, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true, // Trục Y bắt đầu từ 0
+            },
+          },
+        },
+      });
+
+      // Thông báo
+      let notificationCount = 0;
+      const notifications = [];
+
+      // Thêm thông báo
+      function addNotification(type, message) {
+        notificationCount++;
+        document.getElementById("notification-count").innerText =
+          notificationCount;
+        notifications.push({ type, message });
+      }
+
+      // Hiển thị thông báo khi click vào nút
+      function showNotifications() {
+        if (notifications.length > 0) {
+          let message = notifications
+            .map((n) => `${n.type}: ${n.message}`)
+            .join("\n");
+          alert(message);
+        } else {
+          alert("Không có thông báo nào.");
+        }
+      }
+
+      // Giả lập thông báo
+      function simulateNotifications() {
+        setTimeout(
+          () => addNotification("Hỗ trợ", "Người dùng A yêu cầu hỗ trợ"),
+          3000
+        );
+        setTimeout(
+          () => addNotification("Bài đăng", "Người dùng B vừa đăng bài mới"),
+          5000
+        );
+      }
+
+      simulateNotifications(); // Bắt đầu giả lập thông báo
+    </script>
+  </body>
+</html>

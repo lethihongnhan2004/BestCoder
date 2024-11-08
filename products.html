@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý Sản phẩm</title>
+    <link rel="stylesheet" href="admin.css" />
+    <link
+      rel="stylesheet"
+      href="./asset/fonts/fontawesome-free-6.4.0-web/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <nav class="sidebar">
+        <div class="sidebar-header">
+          <h2>Admin GreenX</h2>
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a href="admin.html"
+              ><i class="fas fa-tachometer-alt"></i> Trang chủ</a
+            >
+          </li>
+          <li>
+            <a href="users.html"
+              ><i class="fas fa-users"></i> Quản lý người dùng</a
+            >
+          </li>
+          <li>
+            <a href="posts.html"
+              ><i class="fas fa-edit"></i> Kiểm duyệt bài đăng</a
+            >
+          </li>
+          <li>
+            <a href="tasks.html"><i class="fas fa-tasks"></i> Nhiệm vụ</a>
+          </li>
+          <li>
+            <a href="ranking.html"
+              ><i class="fas fa-chart-bar"></i> Bảng xếp hạng</a
+            >
+          </li>
+          <li>
+            <a href="products.html"
+              ><i class="fas fa-box"></i> Quản lý sản phẩm</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <header>
+          <h1>Quản lý Sản phẩm</h1>
+        </header>
+
+        <section class="product-management">
+          <h2>Danh sách Sản phẩm</h2>
+          <table class="product-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Tên sản phẩm</th>
+                <th>Ảnh</th>
+                <th>Mô tả</th>
+                <th>Điểm</th>
+                <th>Hành động</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-id="1">
+                <td>1</td>
+                <td>Cây Hoa Lan</td>
+                <td>
+                  <img
+                    src="./asset/image/chung tay.jpg"
+                    style="width: 100px; height: 100px"
+                  />
+                </td>
+                <td>Hoa lan đẹp</td>
+                <td>200 điểm</td>
+                <td>
+                  <button class="edit-btn" onclick="editProduct(1)">Sửa</button>
+                  <button class="delete-btn" onclick="deleteProduct(1)">
+                    Xóa
+                  </button>
+                </td>
+              </tr>
+              <tr data-id="2">
+                <td>2</td>
+                <td>Cây Xương Rồng</td>
+                <td>
+                  <img
+                    src="./asset/image/chung tay.jpg"
+                    style="width: 100px; height: 100px"
+                  />
+                </td>
+                <td>Cây xương rồng mini</td>
+                <td>100 điểm</td>
+                <td>
+                  <button class="edit-btn" onclick="editProduct(2)">Sửa</button>
+                  <button class="delete-btn" onclick="deleteProduct(2)">
+                    Xóa
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Thêm sản phẩm mới</h3>
+          <form class="add-product-form" id="add-product-form">
+            <label for="product-name">Tên sản phẩm:</label>
+            <input type="text" id="product-name" name="product-name" required />
+
+            <label for="postImage">Chọn ảnh:</label>
+            <input
+              type="file"
+              id="postImage"
+              name="postImage"
+              accept="image/*"
+            />
+
+            <label for="description">Mô tả:</label>
+            <input type="text" id="description" name="description" required />
+
+            <label for="price">Điểm:</label>
+            <input type="text" id="price" name="price" required />
+
+            <button type="submit">Thêm sản phẩm</button>
+          </form>
+        </section>
+      </div>
+    </div>
+
+    <!-- Modal for editing product -->
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Sửa sản phẩm</h2>
+        <form id="edit-product-form">
+          <label for="edit-product-name">Tên sản phẩm:</label>
+          <input
+            type="text"
+            id="edit-product-name"
+            name="edit-product-name"
+            required
+          />
+
+          <label for="editImage">Chọn ảnh:</label>
+          <input type="file" id="editImage" name="editImage" accept="image/*" />
+
+          <label for="edit-description">Mô tả:</label>
+          <input
+            type="text"
+            id="edit-description"
+            name="edit-description"
+            required
+          />
+
+          <label for="edit-price">Điểm:</label>
+          <input type="text" id="edit-price" name="edit-price" required />
+
+          <button type="submit" id="saveChangesBtn">Lưu thay đổi</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+      // Function to handle adding a product
+      document
+        .getElementById("add-product-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent the default form submission
+
+          // Logic to add the product (not shown here)
+
+          // Show success message
+          alert("Thêm sản phẩm thành công"); // Product added successfully message
+
+          // Optionally, clear the form fields
+          this.reset();
+        });
+
+      function deleteProduct(productId) {
+        // Logic to delete the product from the database or array (not shown)
+
+        // Show success message
+        alert("Xóa thành công"); // Delete Successful message
+
+        // Optionally, remove the product row from the table
+        const row = document.querySelector(`tr[data-id="${productId}"]`);
+        if (row) {
+          row.remove();
+        }
+      }
+    </script>
+    <script src="admin.js"></script>
+  </body>
+</html>

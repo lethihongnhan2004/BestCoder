@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bảng xếp hạng</title>
+    <link rel="stylesheet" href="admin.css" />
+    <link
+      rel="stylesheet"
+      href="./asset/fonts/fontawesome-free-6.4.0-web/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <nav class="sidebar">
+        <div class="sidebar-header">
+          <h2>Admin GreenX</h2>
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a href="admin.html"
+              ><i class="fas fa-tachometer-alt"></i> Trang chủ</a
+            >
+          </li>
+          <li>
+            <a href="users.html"
+              ><i class="fas fa-users"></i> Quản lý người dùng</a
+            >
+          </li>
+          <li>
+            <a href="posts.html"
+              ><i class="fas fa-edit"></i> Kiểm duyệt bài đăng</a
+            >
+          </li>
+          <li>
+            <a href="tasks.html"><i class="fas fa-tasks"></i> Nhiệm vụ</a>
+          </li>
+          <li>
+            <a href="ranking.html"
+              ><i class="fas fa-chart-bar"></i> Bảng xếp hạng</a
+            >
+          </li>
+          <li>
+            <a href="products.html"
+              ><i class="fas fa-box"></i> Quản lý sản phẩm</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <header>
+          <h1>Bảng xếp hạng</h1>
+        </header>
+
+        <section class="ranking">
+          <h2>Top người dùng</h2>
+
+          <!-- Success Message -->
+          <div id="successMessage" style="color: green; display: none"></div>
+
+          <!-- Bảng xếp hạng người dùng -->
+          <table class="ranking-table">
+            <thead>
+              <tr>
+                <th>Hạng</th>
+                <th>Tên người dùng</th>
+                <th>Email</th>
+                <th>Điểm số</th>
+                <th>Hành động</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Nguyễn Văn A</td>
+                <td>nguyenvana@example.com</td>
+                <td>500</td>
+                <td><button class="delete-btn">Xóa</button></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Trần Thị B</td>
+                <td>tranthib@example.com</td>
+                <td>450</td>
+                <td><button class="delete-btn">Xóa</button></td>
+              </tr>
+              <!-- Other rows -->
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      // Function to handle delete action
+      function deleteUser(rank) {
+        // Select the table body
+        const tableBody = document.querySelector(".ranking-table tbody");
+
+        // Find the row to delete based on rank
+        const rowToDelete = Array.from(tableBody.rows).find(
+          (row) => row.cells[0].innerText == rank
+        );
+
+        // If the row is found, remove it from the table
+        if (rowToDelete) {
+          tableBody.removeChild(rowToDelete);
+
+          // Display success message
+          const successMessage = document.getElementById("successMessage");
+          successMessage.innerText = "Xóa thành công";
+          successMessage.style.display = "block"; // Show the message
+
+          // Optionally hide the message after a few seconds
+          setTimeout(() => {
+            successMessage.style.display = "none";
+          }, 3000);
+        } else {
+          alert("Không tìm thấy người dùng để xóa");
+        }
+      }
+
+      // Attach event listeners to delete buttons after DOM content is loaded
+      document.addEventListener("DOMContentLoaded", () => {
+        const deleteButtons = document.querySelectorAll(".delete-btn");
+
+        deleteButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            // Get the rank from the row
+            const rank = this.closest("tr").cells[0].innerText;
+            deleteUser(rank);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

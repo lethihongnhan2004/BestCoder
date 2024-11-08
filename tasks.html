@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý Nhiệm vụ</title>
+    <link rel="stylesheet" href="admin.css" />
+    <link
+      rel="stylesheet"
+      href="./asset/fonts/fontawesome-free-6.4.0-web/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <nav class="sidebar">
+        <div class="sidebar-header">
+          <h2>Admin GreenX</h2>
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a href="admin.html"
+              ><i class="fas fa-tachometer-alt"></i> Trang chủ</a
+            >
+          </li>
+          <li>
+            <a href="users.html"
+              ><i class="fas fa-users"></i> Quản lý người dùng</a
+            >
+          </li>
+          <li>
+            <a href="posts.html"
+              ><i class="fas fa-edit"></i> Kiểm duyệt bài đăng</a
+            >
+          </li>
+          <li>
+            <a href="tasks.html"><i class="fas fa-tasks"></i> Nhiệm vụ</a>
+          </li>
+          <li>
+            <a href="ranking.html"
+              ><i class="fas fa-chart-bar"></i> Bảng xếp hạng</a
+            >
+          </li>
+          <li>
+            <a href="products.html"
+              ><i class="fas fa-box"></i> Quản lý sản phẩm</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <header>
+          <h1>Quản lý Nhiệm vụ</h1>
+        </header>
+
+        <section class="task-management">
+          <h2>Danh sách Nhiệm vụ</h2>
+
+          <!-- Success Message -->
+          <div id="successMessage" style="color: green; display: none"></div>
+
+          <table class="task-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nhiệm vụ</th>
+                <th>Mô tả</th>
+                <th>Thời hạn</th>
+                <th>Trạng thái</th>
+                <th>Hành động</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-id="1">
+                <td>1</td>
+                <td>Hoàn thành bài viết đầu tiên</td>
+                <td>Viết và đăng một bài viết mới lên hệ thống.</td>
+                <td>30/10/2024</td>
+                <td>Đang chờ</td>
+                <td>
+                  <button class="edit-btn" onclick="editTask(1)">Sửa</button>
+                  <button class="delete-btn" onclick="deleteTask(1)">
+                    Xóa
+                  </button>
+                </td>
+              </tr>
+              <tr data-id="2">
+                <td>2</td>
+                <td>Thêm sản phẩm mới</td>
+                <td>Đăng một sản phẩm mới trong danh mục "Cây Cảnh".</td>
+                <td>15/11/2024</td>
+                <td>Đang chờ</td>
+                <td>
+                  <button class="edit-btn" onclick="editTask(2)">Sửa</button>
+                  <button class="delete-btn" onclick="deleteTask(2)">
+                    Xóa
+                  </button>
+                </td>
+              </tr>
+              <tr data-id="3">
+                <td>3</td>
+                <td>Chia sẻ bài viết lên mạng xã hội</td>
+                <td>
+                  Chia sẻ bài viết "Trồng Cây Xanh" lên Facebook và Twitter.
+                </td>
+                <td>01/12/2024</td>
+                <td>Đã hoàn thành</td>
+                <td>
+                  <button class="edit-btn" onclick="editTask(3)">Sửa</button>
+                  <button class="delete-btn" onclick="deleteTask(3)">
+                    Xóa
+                  </button>
+                </td>
+              </tr>
+              <tr data-id="4">
+                <td>4</td>
+                <td>Kiểm tra bài viết người dùng</td>
+                <td>Kiểm tra và phê duyệt các bài viết mới từ người dùng.</td>
+                <td>20/12/2024</td>
+                <td>Đang chờ</td>
+                <td>
+                  <button class="edit-btn" onclick="editTask(4)">Sửa</button>
+                  <button class="delete-btn" onclick="deleteTask(4)">
+                    Xóa
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Thêm nhiệm vụ -->
+          <h3>Thêm nhiệm vụ mới</h3>
+          <form
+            class="add-task-form"
+            id="add-task-form"
+            onsubmit="return addTask(event)"
+          >
+            <label for="task">Tên nhiệm vụ:</label>
+            <input
+              type="text"
+              id="task"
+              name="task"
+              required
+              placeholder="Nhập tên nhiệm vụ"
+            />
+
+            <label for="description">Mô tả:</label>
+            <textarea
+              id="description"
+              name="description"
+              required
+              placeholder="Nhập mô tả nhiệm vụ"
+            ></textarea>
+
+            <label for="deadline">Thời hạn:</label>
+            <input type="date" id="deadline" name="deadline" required />
+
+            <label for="status">Trạng thái:</label>
+            <select id="status" name="status">
+              <option value="Đang chờ">Đang chờ</option>
+              <option value="Đã hoàn thành">Đã hoàn thành</option>
+            </select>
+
+            <button type="submit">Thêm nhiệm vụ</button>
+          </form>
+        </section>
+      </div>
+    </div>
+
+    <!-- Modal for Editing Tasks -->
+    <div id="editModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close" onclick="closeEditModal()">&times;</span>
+        <h2>Sửa Nhiệm vụ</h2>
+        <form id="edit-task-form">
+          <label for="edit-task-title">Tên nhiệm vụ:</label>
+          <input
+            type="text"
+            id="edit-task-title"
+            name="edit-task-title"
+            required
+          />
+
+          <label for="edit-description">Mô tả:</label>
+          <input
+            type="text"
+            id="edit-description"
+            name="edit-description"
+            required
+          />
+
+          <label for="edit-deadline">Thời hạn:</label>
+          <input type="date" id="edit-deadline" name="edit-deadline" required />
+
+          <label for="edit-status">Trạng thái:</label>
+          <select id="edit-status" name="edit-status">
+            <option value="Đang chờ">Đang chờ</option>
+            <option value="Đã hoàn thành">Đã hoàn thành</option>
+          </select>
+
+          <button type="submit" id="saveChangesBtn">Lưu thay đổi</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="admin.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+      function addTask(event) {
+        // Prevent the default form submission behavior
+        event.preventDefault();
+
+        // Show success message
+        alert("Thêm nhiệm vụ thành công");
+
+        // Optionally, you can clear the form fields after submission
+        document.getElementById("add-task-form").reset();
+      }
+
+      function deleteTask(taskId) {
+        // Select the table body
+        const tableBody = document.querySelector(".task-table tbody");
+
+        // Find the row to delete based on task ID
+        const rowToDelete = Array.from(tableBody.rows).find(
+          (row) => row.dataset.id == taskId
+        );
+
+        // If the row is found, remove it from the table
+        if (rowToDelete) {
+          tableBody.removeChild(rowToDelete);
+
+          // Display success message
+          const successMessage = document.getElementById("successMessage");
+          successMessage.innerText = "Xóa thành công nhiệm vụ ID: " + taskId;
+          successMessage.style.display = "block"; // Show the message
+
+          // Optionally hide the message after a few seconds
+          setTimeout(() => {
+            successMessage.style.display = "none";
+          }, 3000);
+        } else {
+          alert("Không tìm thấy nhiệm vụ để xóa");
+        }
+      }
+    </script>
+  </body>
+</html>

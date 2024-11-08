@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông Tin Thanh Toán</title>
+    <link rel="stylesheet" href="./asset/fonts/fontawesome-free-6.4.0-web/css/all.min.css">
+      <style>
+        /* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+}
+
+.checkout-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Product Summary Styles */
+.product-summary {
+    margin-bottom: 20px;
+}
+
+.product-summary h2 {
+    font-size: 1.5rem;
+    color: #4caf50;
+    margin-bottom: 10px;
+}
+
+#productList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#productList li {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    background-color: #fafafa;
+}
+
+#productList li:last-child {
+    border-bottom: none;
+}
+
+.total-summary {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: #f0f2f5;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+/* Form Styles */
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.checkout-form label {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #555;
+}
+
+.checkout-form input,
+.checkout-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.payment-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.payment-options input {
+    margin-right: 5px;
+}
+
+.btn-confirm {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-confirm:hover {
+    background-color: #388e3c;
+}
+
+      </style>
+</head>
+
+<body>
+    <div class="checkout-container">
+        <h1>Thông Tin Thanh Toán</h1>
+
+        <!-- Product Summary Section -->
+        <div class="product-summary">
+            <h2>Sản Phẩm Trong Giỏ Hàng</h2>
+            <ul id="productList">
+                <!-- Product details will be dynamically loaded here -->
+            </ul>
+            <div class="total-summary">
+                <span>Tổng Điểm:</span>
+                <span id="totalScore">0 điểm</span>
+            </div>
+        </div>
+
+        <!-- Checkout Form -->
+        <form class="checkout-form" action="#" method="POST">
+            <label for="fullname"><i class="fa-solid fa-user"></i> Họ và Tên:</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Nhập họ và tên" required>
+
+            <label for="phone"><i class="fa-solid fa-phone"></i> Số Điện Thoại:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại" required>
+
+            <label for="address"><i class="fa-solid fa-location-dot"></i> Địa Chỉ Giao Hàng:</label>
+            <textarea id="address" name="address" rows="3" placeholder="Nhập địa chỉ" required></textarea>
+
+            <label for="payment-method"><i class="fa-solid fa-money-bill-wave"></i> Phương Thức Thanh Toán:</label>
+            <div class="payment-options">
+                <input type="radio" id="cod" name="payment" value="cod" checked>
+                <label for="cod">Trả tiền khi nhận hàng</label>
+            </div>
+
+            <button type="submit" class="btn-confirm">Xác Nhận Đặt Hàng</button>
+        </form>
+    </div>
+
+    <script src="./checkout.js"></script>
+</body>
+
+</html>

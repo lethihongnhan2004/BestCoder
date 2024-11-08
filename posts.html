@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kiểm duyệt bài đăng</title>
+    <link rel="stylesheet" href="admin.css" />
+    <link
+      rel="stylesheet"
+      href="./asset/fonts/fontawesome-free-6.4.0-web/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <nav class="sidebar">
+        <div class="sidebar-header">
+          <h2>Admin GreenX</h2>
+        </div>
+        <ul class="nav-links">
+          <li>
+            <a href="admin.html"
+              ><i class="fas fa-tachometer-alt"></i> Trang chủ</a
+            >
+          </li>
+          <li>
+            <a href="users.html"
+              ><i class="fas fa-users"></i> Quản lý người dùng</a
+            >
+          </li>
+          <li>
+            <a href="posts.html"
+              ><i class="fas fa-edit"></i> Kiểm duyệt bài đăng</a
+            >
+          </li>
+          <li>
+            <a href="tasks.html"><i class="fas fa-tasks"></i> Nhiệm vụ</a>
+          </li>
+          <li>
+            <a href="ranking.html"
+              ><i class="fas fa-chart-bar"></i> Bảng xếp hạng</a
+            >
+          </li>
+          <li>
+            <a href="products.html"
+              ><i class="fas fa-box"></i> Quản lý sản phẩm</a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <header>
+          <h1>Kiểm duyệt bài đăng</h1>
+        </header>
+
+        <section class="content post-approval">
+          <h2>Danh sách bài viết chờ phê duyệt</h2>
+
+          <!-- Success Message -->
+          <div id="successMessage" style="color: green; display: none"></div>
+
+          <table class="post-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Tiêu đề</th>
+                <th>Tác giả</th>
+                <th>Ngày gửi</th>
+                <th>Trạng thái</th>
+                <th>Hành động</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Trồng Cây Xanh</td>
+                <td>Nguyễn Văn A</td>
+                <td>30/10/2024</td>
+                <td>Đang chờ</td>
+                <td>
+                  <button class="approve-btn" onclick="approvePost(1)">
+                    Phê duyệt
+                  </button>
+                  <button class="delete-btn" onclick="deletePost(1)">
+                    Xóa
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Trồng Hoa Hồng</td>
+                <td>Trần Thị B</td>
+                <td>29/10/2024</td>
+                <td>Đang chờ</td>
+                <td>
+                  <button class="approve-btn" onclick="approvePost(2)">
+                    Phê duyệt
+                  </button>
+                  <button class="delete-btn" onclick="deletePost(2)">
+                    Xóa
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      function approvePost(postId) {
+        // Display a success message
+        alert("Phê duyệt thành công cho bài viết ID: " + postId);
+      }
+
+      function deletePost(postId) {
+        // Select the table body
+        const tableBody = document.querySelector(".post-table tbody");
+
+        // Find the row to delete based on post ID
+        const rowToDelete = Array.from(tableBody.rows).find(
+          (row) => row.cells[0].innerText == postId
+        );
+
+        // If the row is found, remove it from the table
+        if (rowToDelete) {
+          tableBody.removeChild(rowToDelete);
+
+          // Display success message
+          const successMessage = document.getElementById("successMessage");
+          successMessage.innerText = "Xóa thành công bài viết ID: " + postId;
+          successMessage.style.display = "block"; // Show the message
+
+          // Optionally hide the message after a few seconds
+          setTimeout(() => {
+            successMessage.style.display = "none";
+          }, 3000);
+        } else {
+          alert("Không tìm thấy bài viết để xóa");
+        }
+      }
+    </script>
+  </body>
+</html>

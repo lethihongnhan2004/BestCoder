@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green X</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./asset/fonts/fontawesome-free-6.4.0-web/css/all.min.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <img src="./asset/image/logo.jpg" alt="Logo" width="40">
+            <span>Green X</span>
+        </div>
+
+        <nav class="menu">
+            <ul>
+                <li><a href="./index.html"><i class="fa-solid fa-house"></i><span>Trang chủ</span></a></li>
+                <li><a href="./khampha.html"><i class="fa-solid fa-globe"></i><span>Dành cho bạn</span></a></li>
+                <li><a href="./dangbai.html"><i class="fa-solid fa-camera"></i><span>Đăng bài</span></a></li>
+                <li><a href="./cho.html"><i class="fa-solid fa-shop"></i><span>Chợ</span></a></li>
+                <li><a href="./bangxephang.html"><i class="fa-solid fa-ranking-star"></i><span>Bảng xếp hạng</span></a>
+                </li>
+                <li><a href="./nhiemvu.html"><i class="fa-solid fa-list-check"></i><span>Nhiệm vụ</span></a></li>
+            </ul>
+        </nav>
+
+        <div class="login-section">
+            <p>Nhập để đăng nhập vào tài khoản của bạn và xem thêm thông tin!</p>
+        </div>
+
+        <footer class="footer">
+            <p>© 2024 Green X</p>
+        </footer>
+    </div>
+
+    <div class="content">
+        <header class="header">
+            <input type="text" placeholder="Tìm kiếm...">
+            <button class="search-button">🔍 Tìm kiếm</button>
+            <div class="cart-icon" id="cartIcon">
+                <i class=" fa-solid fa-cart-shopping " style="margin-left: 10px;"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+            <button>
+                  <a href="./profile.html" style="list-style: none; text-decoration: none;">hanhbanh28</a>
+            </button>
+        </header>
+
+        <div class="wrapper">
+            <div class="menu-categories">
+                <ul>
+                    <li><a href="./cho.html">Quần áo</a></li>
+                    <li><a href="#">Điện tử</a></li>
+                    <li><a href="#">Nhà cửa và đời sống</a></li>
+                    <li><a href="#">Hoa quả</a></li>
+                </ul>
+            </div>
+
+            <div class="items-container">
+                <!-- Example item -->
+                <div class="item-card">
+                    <img src="./asset/image/hình 1.webp" alt="Áo khoác denim">
+                    <div class="item-description">
+                        <p>Áo khoác jean denim thời trang cá tính.</p>
+                        <span>400 Điểm</span>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <button class="btn-plus">+</button>
+                </div>
+                <div class="item-card">
+                    <img src="./asset/image/hình 1.webp" alt="Áo khoác denim">
+                    <div class="item-description">
+                        <p>Áo khoác jean denim thời trang cá tính.</p>
+                        <span>400 Điểm</span>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <button class="btn-plus">+</button>
+                </div>
+                <div class="item-card">
+                    <img src="./asset/image/hình 1.webp" alt="Áo khoác denim">
+                    <div class="item-description">
+                        <p>Áo khoác jean denim thời trang cá tính.</p>
+                        <span>400 Điểm</span>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <button class="btn-plus">+</button>
+                </div>
+                <div class="item-card">
+                    <img src="./asset/image/hình 1.webp" alt="Áo khoác denim">
+                    <div class="item-description">
+                        <p>Áo khoác jean denim thời trang cá tính.</p>
+                        <span>400 Điểm</span>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <button class="btn-plus">+</button>
+                </div>
+                <div class="item-card">
+                    <img src="./asset/image/hình 1.webp" alt="Áo khoác denim">
+                    <div class="item-description">
+                        <p>Áo khoác jean denim thời trang cá tính.</p>
+                        <span>400 Điểm</span>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <button class="btn-plus">+</button>
+                </div>
+                <div class="item-card">
+                    <img src="./asset/image/ca-chua-bi.jpg" alt="Áo khoác denim">
+                    <div class="item-description">
+                        <p>Cà chua bi.</p>
+                        <span>100 Điểm</span>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <button class="btn-plus">+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--  giỏ hàng -->
+    <div class="popup-wrapper">
+        <form class="cart-form">
+            <h5>Sản phẩm đã thêm vào giỏ hàng</h5>
+            <button type="button" class="btn-dismiss"><i class="fas fa-times"></i></button>
+            <hr>
+    
+            <div class="cart-details"></div> <!-- Chứa sản phẩm đã thêm -->
+    
+            <hr>
+            <div class="action-group">
+                <button type="submit" class="btn-buy">Mua Hàng Ngay</button>
+            </div>
+        </form>
+    </div>
+    
+    <div class="overlay" id="overlay"></div>
+<!-- thanh toán -->
+ <!-- Form Thanh Toán -->
+<div class="payment-popup-wrapper" id="paymentPopup">
+    <form class="payment-form">
+        <h3>Thông Tin Thanh Toán</h3>
+        <button type="button" class="btn-close-payment">&times;</button>
+
+        <!-- Khu vực hiển thị sản phẩm trong giỏ hàng -->
+        <div class="payment-details" id="paymentDetails"></div>
+
+        <div class="input-group">
+            <label for="name">Họ và Tên</label>
+            <input type="text" id="name" placeholder="Nhập họ và tên" required />
+        </div>
+
+        <div class="input-group">
+            <label for="address">Địa Chỉ</label>
+            <input type="text" id="address" placeholder="Nhập địa chỉ giao hàng" required />
+        </div>
+
+        <div class="input-group">
+            <label for="phone">Số Điện Thoại</label>
+            <input type="tel" id="phone" placeholder="Nhập số điện thoại" required />
+        </div>
+
+        <div class="input-group">
+            <label for="payment">Phương Thức Thanh Toán</label>
+            <select id="payment" required>
+                <option value="cod">Thanh toán khi nhận hàng</option>
+                <option value="bank">Chuyển khoản ngân hàng</option>
+                <option value="momo">Ví MoMo</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn-confirm-payment">Xác Nhận Thanh Toán</button>
+    </form>
+</div>
+
+
+    <!-- JavaScript -->
+    <script src="./script.js"></script>
+</body>
+
+</html>
